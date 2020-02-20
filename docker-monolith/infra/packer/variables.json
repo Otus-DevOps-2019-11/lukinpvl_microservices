@@ -1,0 +1,10 @@
+{
+      "project_id": "docker-268712",
+      "source_image_family": "ubuntu-1604-lts",
+      "machine_type": "f1-micro",
+      "image_description": "reddit-app",
+      "disk_size": "10",
+      "disk_type": "pd-standard",
+      "tags": "docker-machine",
+      "zone": "europe-west1-b"
+}

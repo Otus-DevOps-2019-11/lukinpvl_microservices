@@ -1,0 +1,6 @@
+REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
+lukinpvl/ubuntu-tmp-file   latest              3b402dbedec9        21 seconds ago      124MB
+ubuntu                     16.04               96da9143fb18        4 weeks ago         124MB
+hello-world                latest              fce289e99eb9        13 months ago       1.84kB
+
+#Конейнер - создается на основе образа, добавлением RW слоя и специфичных настроек типа сети и маунтов

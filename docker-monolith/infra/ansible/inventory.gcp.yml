@@ -1,0 +1,8 @@
+plugin: gcp_compute
+projects:
+  - docker-268712
+groups:
+  app: "'reddit-docker' in name"
+filters:
+auth_kind: serviceaccount
+service_account_file: /root/docker-268712-9c640d006f43.json
