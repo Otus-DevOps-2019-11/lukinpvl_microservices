@@ -1,0 +1,31 @@
+- name: Configure docker-host for packer
+  hosts: all
+  become: true
+  tasks:
+
+      - name: Install aptitude using apt
+        apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+      - name: Add Docker GPG key
+        apt_key:
+          url: https://download.docker.com/linux/ubuntu/gpg
+          state: present
+
+      - name: Install required system packages
+        apt: name={{ item }} state=latest update_cache=yes
+        loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'gnupg-agent', 'software-properties-common']
+
+      - name: Add Docker APT repository
+        apt_repository:
+          repo: deb [arch=amd64] https://download.docker.com/linux/{{ansible_distribution|lower}} {{ansible_distribution_release}} stable
+          state: present
+
+      - name: Install Docker
+        apt: name={{ item }} state=latest update_cache=yes
+        loop: [ 'docker-ce', 'docker-ce-cli', 'containerd.io', 'python-docker']
+
+      - name: Add appuser to docker group
+        user:
+          name: appuser
+          groups: docker
+          append: yes
