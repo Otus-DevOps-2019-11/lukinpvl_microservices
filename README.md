@@ -1,6 +1,10 @@
 # lukinpvl_microservices
 lukinpvl microservices repository
 
+# homework #14 - docker-4
+Default docker-compose project name is folder name where docker-compse run.
+To specify custom project name use -p flag or COMPOSE_PROJECT_NAME environment variable.
+
 # homework #13 - docker-3
 Split Reddit app into several microservices
 
