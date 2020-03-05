@@ -18,7 +18,7 @@ build_job:
   stage: build
   script:
     - echo 'Building'
-    - touch /tmp/123
+    - hostname
 
 test_unit_job:
   stage: test
