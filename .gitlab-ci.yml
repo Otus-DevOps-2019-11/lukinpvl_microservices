@@ -16,15 +16,23 @@ variables:
 
 build_job:
   stage: build
+  services:
+    - docker:19.03.1-dind
   script:
     - echo 'Building'
     - hostname
+    - cd ./docker-monolith
+    - docker build -t reddit:latest .
+    - docker images -a
 
 test_unit_job:
+  image: ruby:2.4.2
   stage: test
   services:
     - mongo:latest
   script:
+    - cd reddit
+    - bundle install
     - ruby simpletest.rb
 
 test_integration_job:
