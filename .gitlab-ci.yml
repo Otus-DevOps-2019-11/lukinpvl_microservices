@@ -20,7 +20,7 @@ build_job:
     - docker:19.03.1-dind
   script:
     - echo 'Building'
-    - hostname
+    - docker info
     - cd ./docker-monolith
     - docker build -t reddit:latest .
     - docker images -a
