@@ -23,9 +23,9 @@ build_job:
   script:
     - echo 'Building'
     - docker info
-    - cd ./docker-monolith
-    - docker build -t reddit:latest .
-    - docker images -a
+#    - cd ./docker-monolith
+#    - docker build -t reddit:latest .
+#    - docker images -a
 
 test_unit_job:
   image: ruby:2.4.2
@@ -46,9 +46,11 @@ deploy_dev_job:
   stage: review
   script:
     - echo 'Deploy'
-  environment:
-    name: dev
-    url: http://de1v.example.com
+    - echo $HUB_LOGIN
+    - echo $HUB_PASSWORD
+ # environment:
+ #   name: dev
+ #   url: http://de1v.example.com
 
 branch review:
   stage: review
