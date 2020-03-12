@@ -13,9 +13,9 @@ variables:
   DOCKER_TLS_CERTDIR: ""
 
 before_script:
-   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-   - eval $(ssh-agent -s)
-   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+#   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+#   - eval $(ssh-agent -s)
+#   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
    - hostname
    - whoami
    - mkdir -p /home/$SSH_LOGIN/.ssh
@@ -59,7 +59,7 @@ test_integration_job:
     - echo 'Testing 2'
 
 deploy_dev_job:
-  image: ubuntu:latest
+#  image: ubuntu:latest
   stage: review
   script:
     - cat /etc/*release*
@@ -67,7 +67,7 @@ deploy_dev_job:
     - echo $SSH_LOGIN
     - echo $SSH_PASSWORD
     - echo $HOST_IP
-    - apt-get update && apt-get install -y openssh
+    - apk update && apk add openssh
     - ssh -i /home/$SSH_LOGIN/.ssh/priv_key $SSH_LOGIN@$HOST_IP 'docker run --name reddit_app -d -p 9292:9292 windiego1/otus-reddit:1.0'
  # environment:
  #   name: dev
