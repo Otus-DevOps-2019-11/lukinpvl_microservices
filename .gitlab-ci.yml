@@ -1,7 +1,7 @@
 image: docker:19.03.1
 
 stages:
-  - build
+#  - build
   - test
   - review
   - stage
@@ -21,38 +21,38 @@ before_script:
    - whoami
    - mkdir -p /home/$SSH_LOGIN/.ssh
    - chmod 700 /home/$SSH_LOGIN/.ssh
-   - ls -al /home/$SSH_LOGIN/.ssh
    - echo $SSH_PRIVATE_KEY > /home/$SSH_LOGIN/.ssh/priv_key
+   - ls -al /home/$SSH_LOGIN/.ssh
 
 #  - cd reddit
 #  - bundle install
 
-build_job:
-  stage: build
-  services:
-    - docker:19.03.1-dind
-  script:
-    - echo 'Building'
-    - echo $HUB_LOGIN
-    - echo $HUB_PASSWORD
-    - docker info
-    - docker login -u $HUB_LOGIN -p $HUB_PASSWORD
-    - cd ./docker-monolith
-    - docker build -t reddit:latest .
-    - docker images -a
-    - docker tag reddit:latest $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID
-    - docker push $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID
-    - docker rmi reddit
+#build_job:
+#  stage: build
+#  services:
+#    - docker:19.03.1-dind
+#  script:
+#    - echo 'Building'
+#    - echo $HUB_LOGIN
+#    - echo $HUB_PASSWORD
+#    - docker info
+#    - docker login -u $HUB_LOGIN -p $HUB_PASSWORD
+#    - cd ./docker-monolith
+#    - docker build -t reddit:latest .
+#    - docker images -a
+#    - docker tag reddit:latest $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID
+#    - docker push $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID
+#    - docker rmi reddit
 
-test_unit_job:
-  image: ruby:2.4.2
-  stage: test
-  services:
-    - mongo:latest
-  script:
-    - cd reddit
-    - bundle install
-    - ruby simpletest.rb
+#test_unit_job:
+#  image: ruby:2.4.2
+#  stage: test
+#  services:
+#    - mongo:latest
+#  script:
+#    - cd reddit
+#    - bundle install
+#    - ruby simpletest.rb
 
 test_integration_job:
   stage: test
@@ -62,6 +62,7 @@ test_integration_job:
 deploy_dev_job:
   stage: review
   script:
+    - cat /etc/*release*
     - echo 'Deploy'
     - echo $SSH_LOGIN
     - echo $SSH_PASSWORD
