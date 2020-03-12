@@ -2,7 +2,7 @@ image: docker:19.03.1
 
 stages:
 #  - build
-  - test
+#  - test
   - review
   - stage
   - production
@@ -53,10 +53,10 @@ before_script:
 #    - bundle install
 #    - ruby simpletest.rb
 
-test_integration_job:
-  stage: test
-  script:
-    - echo 'Testing 2'
+#test_integration_job:
+#  stage: test
+#  script:
+#    - echo 'Testing 2'
 
 deploy_dev_job:
   image: ubuntu:latest
