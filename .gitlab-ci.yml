@@ -19,7 +19,7 @@ before_script:
    - hostname
    - whoami
    - mkdir -p /home/$SSH_LOGIN/.ssh
-   - echo $SSH_PRIVATE_KEY > /home/$SSH_LOGIN/.ssh/priv_key
+   - echo $SSH_PRIVATE_KEY | tr -d '\r' > /home/$SSH_LOGIN/.ssh/priv_key
    - chmod -R 700 /home/$SSH_LOGIN/.ssh
    - ls -al /home/$SSH_LOGIN/.ssh
 
