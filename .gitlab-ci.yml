@@ -12,7 +12,16 @@ variables:
   DATABASE_URL: 'mongodb://mongo/user_posts'
   DOCKER_TLS_CERTDIR: ""
 
-#before_script:
+before_script:
+#   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+#   - eval $(ssh-agent -s)
+#   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+   - whoami
+   - mkdir -p /home/$SSH_LOGIN/.ssh
+   - chmod 700 /home/$SSH_LOGIN/.ssh
+   - ls -al /home/$SSH_LOGIN/.ssh
+   - echo $SSH_PRIVATE_KEY > /home/$SSH_LOGIN/.ssh/priv_key
+
 #  - cd reddit
 #  - bundle install
 
@@ -23,9 +32,13 @@ build_job:
   script:
     - echo 'Building'
     - docker info
+    - docker login -u $HUB_LOGIN -p $HUB_PASSWORD
 #    - cd ./docker-monolith
 #    - docker build -t reddit:latest .
 #    - docker images -a
+    - docker tag reddit:latest $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID
+    - docker push $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID
+    - docker rmi reddit
 
 test_unit_job:
   image: ruby:2.4.2
@@ -48,6 +61,8 @@ deploy_dev_job:
     - echo 'Deploy'
     - echo $HUB_LOGIN
     - echo $HUB_PASSWORD
+    - echo $HOST_IP
+    - ssh -i /home/$SSH_LOGIN/.ssh/priv_key $SSH_LOGIN@$HOST_IP 'docker run --name reddit_app -d -p 9292:9292 windiego1/otus-reddit:1.0'
  # environment:
  #   name: dev
  #   url: http://de1v.example.com
