@@ -20,7 +20,7 @@ before_script:
    - whoami
    - mkdir -p /home/$SSH_LOGIN/.ssh
    - echo $SSH_PRIVATE_KEY > /home/$SSH_LOGIN/.ssh/priv_key
-   - chmod -r 700 /home/$SSH_LOGIN/.ssh
+   - chmod -R 700 /home/$SSH_LOGIN/.ssh
    - ls -al /home/$SSH_LOGIN/.ssh
 
 #  - cd reddit
