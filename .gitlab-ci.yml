@@ -60,7 +60,7 @@ deploy_dev_job:
     - echo $SSH_PASSWORD
     - echo $HOST_IP
     - apt-get update && apt-get install -y openssh-client
-    - ssh -o StrictHostKeyChecking=no $SSH_LOGIN@$HOST_IP "docker run --name reddit_app -d -p 9292:9292 $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID"
+    - ssh -o StrictHostKeyChecking=no $SSH_LOGIN@$HOST_IP "docker run -d -p 9292:9292 $HUB_LOGIN/otus-reddit:1.$CI_PIPELINE_ID"
   environment:
     name: dev
     url: http://de1v.example.com
