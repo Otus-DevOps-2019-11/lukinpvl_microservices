@@ -1,6 +1,9 @@
 # lukinpvl_microservices
 lukinpvl microservices repository
 
+# homework #15 - gitlab-ci-1
+link to check gitlab notification https://app.slack.com/client/T6HR0TUP3/CRV8SGR24
+
 # homework #14 - docker-4
 Default docker-compose project name is folder name where docker-compse run.
 To specify custom project name use -p flag or COMPOSE_PROJECT_NAME environment variable.
