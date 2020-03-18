@@ -1,7 +1,7 @@
 # lukinpvl_microservices
 lukinpvl microservices repository
 
-# homework #15 - gitlab-ci-1
+# homework #15 - monitoring-1
 Configured prometheus for reddit app monitoring
 
 # homework #15 - gitlab-ci-1
