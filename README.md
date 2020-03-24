@@ -1,6 +1,9 @@
 # lukinpvl_microservices
 lukinpvl microservices repository
 
+# homework #15 - monitoring-1
+Configured prometheus for reddit app monitoring
+
 # homework #15 - gitlab-ci-1
 link to check gitlab notification https://app.slack.com/client/T6HR0TUP3/CRV8SGR24
 
