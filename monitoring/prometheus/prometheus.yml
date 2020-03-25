@@ -28,17 +28,22 @@ scrape_configs:
       - targets:
         - 'mongodb-exporter:9216'
 
-  - job_name: 'blackbox'
-    metrics_path: /probe
-    params:
-      module: [http_2xx]  # Look for a HTTP 200 response.
+  - job_name: 'cadvisor'
     static_configs:
       - targets:
-        - http://34.76.141.174:9292    # Target to probe with http.
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: blackbox_exporter:9115  # The blackbox exporter's real hostname:port.
+        - 'cadvisor:8080'
+
+  - job_name: 'post'
+    static_configs:
+      - targets:
+        - 'post:5000'
+
+rule_files:
+  - "alerts.yml"
+
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - "alertmanager:9093"
