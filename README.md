@@ -2,7 +2,10 @@
 lukinpvl microservices repository
 
 # homework #16 - monitoring-1
-Configuret cAvisor, grafana, alertmanager
+Configured EFK, Zipkin for reddit app
+
+# homework #16 - monitoring-1
+Configured cAvisor, grafana, alertmanager
 https://hub.docker.com/u/windiego1
 
 # homework #15 - monitoring-1
