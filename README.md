@@ -2,7 +2,7 @@
 lukinpvl microservices repository
 
 # homework #20 - kubernetes-2
-Deploed reddit app on minikube and GKE
+Deployed reddit app on minikube and GKE
 
 # homework #19 - kubernetes-1
 Complete kubernetes THW
