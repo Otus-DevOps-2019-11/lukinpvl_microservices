@@ -1,10 +1,16 @@
 # lukinpvl_microservices
 lukinpvl microservices repository
 
-# homework #16 - monitoring-1
+# homework #19 - kubernetes-2
+Deploed reddit app on minikube and GKE
+
+# homework #18 - kubernetes-1
+Complete kubernetes THW
+
+# homework #17 - monitoring-3
 Configured EFK, Zipkin for reddit app
 
-# homework #16 - monitoring-1
+# homework #16 - monitoring-2
 Configured cAvisor, grafana, alertmanager
 https://hub.docker.com/u/windiego1
 
