@@ -2,6 +2,9 @@
 lukinpvl microservices repository
 
 # homework #20 - kubernetes-2
+Configured kubernetes network and volumes for reddit app
+
+# homework #20 - kubernetes-2
 Deployed reddit app on minikube and GKE
 
 # homework #19 - kubernetes-1
