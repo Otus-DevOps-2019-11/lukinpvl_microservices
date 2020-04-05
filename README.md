@@ -1,7 +1,10 @@
 # lukinpvl_microservices
 lukinpvl microservices repository
 
-# homework #20 - kubernetes-2
+# homework #22 - kubernetes-4
+Configured gitlab in kubernetes. Checked reddiat app pipeline
+
+# homework #21 - kubernetes-3
 Configured kubernetes network and volumes for reddit app
 
 # homework #20 - kubernetes-2
