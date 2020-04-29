@@ -1,8 +1,11 @@
 # lukinpvl_microservices
 lukinpvl microservices repository
 
+# homework #23 - kubernetes-5
+Configured grafana and EFK fot reddit app in kubernetes
+
 # homework #22 - kubernetes-4
-Configured gitlab in kubernetes. Checked reddiat app pipeline
+Configured gitlab in kubernetes. Checked reddit app pipeline
 
 # homework #21 - kubernetes-3
 Configured kubernetes network and volumes for reddit app
